@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Flask Application</title>
+
+</head>
+
+<body>
+    <div class="header">
+        <a href="/"><h1>Flask Task</h1></a>
+        <button onclick="openModal()">+ Note</button>
+    </div>
+
+    <div class="content">
+        <form action="/search/" method="post" class="searchBar">
+            <input type="text" placeholder="Search Notes..." name="search" required>
+            <input type="submit" value="Search">
+        </form>
+        
+            {% if data == [] %}
+                <h4 style="text-align: center;">No Notes Found</h4>
+            {% else %}
+            <table class="noteTable">
+                <tr>
+                    <th>Serial</th>
+                    <th>Note</th>
+                    <th>Created at</th>
+                    <th>Action</th>
+                </tr>
+                {% for i in range(data_len) %}
+                <tr>
+                    <td>{{i+1}}</td>
+                    <td>{{data[i]['content']}}</td>
+                    <td>{{data[i]['timestamp']}}</td>
+                    <td> 
+                        <a href="/delete/{{data[i]['_id']}}" onclick="alert('Are You Sure?')">Delete</a>&nbsp;
+                        <a onclick="openUpdateModal(noteId='{{data[i]._id}}',content = '{{data[i].content}}' )" style="background-color: rgb(8, 184, 31);cursor: pointer;" >Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+            
+        
+
+
+    </div>
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Add New Note</p>
+            <form action="/add" method="post" id="modalForm">
+                <textarea name="content" cols="30" rows="10" id="contetArea"></textarea>
+                <input type="submit" value="Add Note" id="submitBtn">
+            </form>
+        </div>
+
+    </div>
+
+
+    <div id="updateModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" id="updateClose">&times;</span>
+            <p>Update Note</p>
+            <form action="" method="post" id="updateForm">
+                <textarea name="content" cols="30" rows="10" id="contentArea"></textarea>
+                <input type="submit" value="Update" id="submitBtn">
+            </form>
+        </div>
+
+    </div>
+
+
+    <script>
+        function openModal() {
+            var modal = document.getElementById("myModal");
+            var span = document.getElementsByClassName("close")[0];
+
+            modal.style.display = "block";
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+        }
+
+        function openUpdateModal(noteId, content) {
+            var modal = document.getElementById("updateModal");
+            var span = document.getElementById("updateClose");
+            var formElem = document.getElementById("updateForm");
+            var textContent = document.getElementById('contentArea');
+            
+
+            
+
+            modal.style.display = "block";
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            formElem.action = `/update/${noteId}`;
+            console.log(formElem);
+            textContent.innerHTML = content;
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,9 +1,6 @@
 # Flask-task
 
 
-
-Interview task for flask with mongo db
-
 --Project Setup--
 1.Use git clone command to clone to your local.
 2.python -m virtualenv .venv (Create a virtual environment)

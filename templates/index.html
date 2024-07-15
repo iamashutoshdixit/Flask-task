@@ -1,126 +1,108 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <title>Flask Application</title>
-
+    <title>Event Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-
 <body>
-    <div class="header">
-        <a href="/"><h1>Flask Task</h1></a>
-        <button onclick="openModal()">+ Note</button>
-    </div>
-
-    <div class="content">
-        <form action="/search/" method="post" class="searchBar">
-            <input type="text" placeholder="Search Notes..." name="search" required>
-            <input type="submit" value="Search">
-        </form>
-        
-            {% if data == [] %}
-                <h4 style="text-align: center;">No Notes Found</h4>
-            {% else %}
-            <table class="noteTable">
-                <tr>
-                    <th>Serial</th>
-                    <th>Note</th>
-                    <th>Created at</th>
-                    <th>Action</th>
-                </tr>
-                {% for i in range(data_len) %}
-                <tr>
-                    <td>{{i+1}}</td>
-                    <td>{{data[i]['content']}}</td>
-                    <td>{{data[i]['timestamp']}}</td>
-                    <td> 
-                        <a href="/delete/{{data[i]['_id']}}" onclick="alert('Are You Sure?')">Delete</a>&nbsp;
-                        <a onclick="openUpdateModal(noteId='{{data[i]._id}}',content = '{{data[i].content}}' )" style="background-color: rgb(8, 184, 31);cursor: pointer;" >Edit</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
-            {% endif %}
-            
-        
-
-
-    </div>
-
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Add New Note</p>
-            <form action="/add" method="post" id="modalForm">
-                <textarea name="content" cols="30" rows="10" id="contetArea"></textarea>
-                <input type="submit" value="Add Note" id="submitBtn">
-            </form>
+    <header>
+        <nav>
+            <ul>
+                <li><a href=" {{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('aboutus') }}">About Us</a></li>
+                <li><a href="{{ url_for('service') }}">Our Services</a></li>
+                <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+                <li><a href="{{ url_for('testimonials') }}">Testimonials</a></li>
+                <li><a href="{{ url_for('contactus') }}">Visit Us</a></li>
+            </ul>
+        </nav>
+        <div class="header-content">
+            <img src="{{ url_for('static', filename='Product_image/images/Final (1) 3.png')}}" alt="Event">
+            <h1>Transform Your Vision into Reality</h1>
+            <p>Flawless Events: Unforgettable Moments</p>
+            <a href="{{ url_for('contactus') }}" class="button">Visit Us</a>
         </div>
+    </header>
+    <main>
+        <section class="about">
+            <h2>Transform Your Vision into Reality</h2>
+            <p>We specialize in creating extraordinary events that leave a lasting impression...</p>
+            <a href="{{ url_for('aboutus') }}" class="button">About Us</a>
+            <img src="{{ url_for('static', filename='Product_image/images/Final (1) 3.png') }}" alt="Event">
 
-    </div>
-
-
-    <div id="updateModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close" id="updateClose">&times;</span>
-            <p>Update Note</p>
-            <form action="" method="post" id="updateForm">
-                <textarea name="content" cols="30" rows="10" id="contentArea"></textarea>
-                <input type="submit" value="Update" id="submitBtn">
-            </form>
+        </section>
+        <section class="services">
+            <h2>Our Services</h2>
+            <div class="service">
+                <img src="service1.jpg" alt="Service">
+                <h3>Service Name</h3>
+                <p>We specialize in creating extraordinary events...</p>
+                <a href="{{ url_for('service') }}" class="button">Know More</a>
+            </div>
+            <div class="service">
+                <img src="service2.jpg" alt="Service">
+                <h3>Service Name</h3>
+                <p>We specialize in creating extraordinary events...</p>
+                <a href="{{ url_for('service') }}" class="button">Know More</a>
+            </div>
+            <div class="service">
+                <img src="service3.jpg" alt="Service">
+                <h3>Service Name</h3>
+                <p>We specialize in creating extraordinary events...</p>
+                <a href="#" class="button">Know More</a>
+            </div>
+        </section>
+        <section class="gallery">
+            <h2>Gallery</h2>
+            <img src="{{ url_for('static', filename='images/Rectangle 2331.png') }}" alt="A beautiful scenery">
+            <img src="{{ url_for('static', filename='images/Rectangle 2332.png') }}" alt="A beautiful scenery">
+            <img src="{{ url_for('static', filename='images/Rectangle 2333.png') }}" alt="A beautiful scenery">
+            <img src="{{ url_for('static', filename='images/Rectangle 2334.png') }}" alt="A beautiful scenery">
+            <img src="{{ url_for('static', filename='images/Rectangle 2335.png') }}" alt="A beautiful scenery">
+           
+            <a href="#" class="button">View All</a>
+        </section>
+        <section class="testimonials">
+            <h2>Testimonials</h2>
+            <blockquote>
+                <p>Lorem ipsum is simply dummy text of the printing and typesetting industry...</p>
+                <cite>John Doe, Customer</cite>
+            </blockquote>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <h2>Have Questions?</h2>
+            <a href="#" class="button">Visit Us</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Visit Us</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <p>Contact Us: +91 9876543210</p>
+                <p>Email: info@company.com</p>
+                <p>Follow us on social media</p>
+                <div class="social-media">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
         </div>
-
-    </div>
-
-
-    <script>
-        function openModal() {
-            var modal = document.getElementById("myModal");
-            var span = document.getElementsByClassName("close")[0];
-
-            modal.style.display = "block";
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-
-        }
-
-        function openUpdateModal(noteId, content) {
-            var modal = document.getElementById("updateModal");
-            var span = document.getElementById("updateClose");
-            var formElem = document.getElementById("updateForm");
-            var textContent = document.getElementById('contentArea');
-            
-
-            
-
-            modal.style.display = "block";
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-            formElem.action = `/update/${noteId}`;
-            console.log(formElem);
-            textContent.innerHTML = content;
-
-        }
-    </script>
+    </footer>
+     <!-- Start Footer -->
+     <footer class="container-fluid bg-dark text-center p-2 mt-5">
+        <small class="footer">Copyright &copy; 2023 || Designed By Ashutosh Dixit || </small>
+       
+    </footer> <!-- End Footer -->
 </body>
-
 </html>

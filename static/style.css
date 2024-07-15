@@ -1,187 +1,242 @@
+/* styles.css */
+
 body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
 }
 
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 0;
+}
 
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    padding: 5px 0;
-    text-align: center;
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
-.header h1{
-    display: inline-block;
-    margin-left: 100px;
-    text-decoration: underline;
+
+header nav ul li {
+    margin: 0 1rem;
 }
-.header a{
+
+header nav ul li a {
+    color: white;
     text-decoration: none;
-    color: white;
-}
-
-.header button{
-  background-color: #0a9aee; 
-  border: none;
-  color: white;
-  padding: 10px 22px;
-  border-radius: 5px;
-  text-align: center;
-  transition-duration: 0.4s;
-  text-decoration: none;
-  margin-right: 5px;
-  margin-top: 20px;
-  float: right;
-  font-size: 16px;
-}
-.header button:hover {
-    background-color: #077bbe; 
-    color: white;
-  }
-
-.content {
-    align-items: center;
-    margin-top: 100px;
-    padding: 20px;
-}
-
-.noteTable {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    
-    width: 80%;
-    margin: auto;
-  }
-  
-  .noteTable td, .noteTable th {
-    border: 1px solid #383838;
-    text-align: center;
-    padding: 8px;
-  }
-  
-  .noteTable tr:nth-child(even){background-color: #f2f2f2;}
-  
-  .noteTable tr:hover {background-color: #ddd;}
-  
-  .noteTable th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #0a9aee;
-    color: white;
-  }
-
-  .noteTable a{
-    background-color: #ee4b0a; 
-    border: none;
-    color: white;
-    padding: 7px;
-    border-radius: 5px;
-    text-align: center;
-    transition-duration: 0.4s;
-    text-decoration: none;
-    font-size: 12px;
-  }
-
-  .noteTable a:hover{
-    background-color: #ce4008; 
-    color: white;
-  }
-
-  
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 999; 
-    padding-top: 100px; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 50%;
-    margin-bottom:100px;
-  }
-  .modal-content h4{
-    font-size: 21px;
-    
-    text-decoration: underline;
-    
-  }
-  .modal-content p{
-    font-size: 18px;
-    color: #2a2a2a;
-  }
-  
-  .close {
-    color: #aaaaaa;
-    float: right;
-    cursor: pointer;
-    font-size: 28px;
     font-weight: bold;
-  }
-  textarea{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  
-  input[type=submit] {
-    width: 30%;
-    background-color: #0a9aee;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #0675b6;
-  }
+}
 
-  .searchBar input[type="text"]{
-    width: 50%;
-    padding: 12px 20px;
-    margin-left: 24%;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+.header-content {
+    text-align: center;
+    padding: 2rem 0;
+}
 
-.searchBar input[type=submit] {
-    width: 5%;
-    background-color: #0a9aee;
+.header-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header-content h1 {
+    margin: 1rem 0;
+    font-size: 2.5rem;
+}
+
+.header-content p {
+    margin: 1rem 0;
+    font-size: 1.25rem;
+}
+
+.header-content .button {
+    background-color: white;
+    color: #4CAF50;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+main {
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about h2,
+.services h2,
+.gallery h2,
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about p,
+.services p,
+.testimonials blockquote p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.about img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.services .service {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 30%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.services .service img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.services .service h3 {
+    margin-top: 0;
+}
+
+.services .service p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.services .service .button {
+    background-color: #4CAF50;
     color: white;
-    margin-left: 0%;
-    padding: 13px 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
-.searchBar input[type=submit]:hover {
-    background-color: #0675b6;
-  }
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery .gallery-item {
+    margin: 0.5rem;
+}
+
+.gallery .gallery-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gallery .button {
+    display: block;
+    margin: 1rem auto;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+.testimonials blockquote {
+    background-color: white;
+    border-left: 5px solid #4CAF50;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-width: 60%;
+    font-style: italic;
+}
+
+.testimonials blockquote p {
+    margin: 0;
+}
+
+.testimonials blockquote cite {
+    display: block;
+    text-align: right;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-content h2 {
+    margin: 0 0 1rem;
+}
+
+.footer-content .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer nav ul li {
+    margin: 0.5rem;
+}
+
+footer nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-info {
+    font-size: 0.9rem;
+    margin: 1rem 0;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+}
+
+.social-media a {
+    margin: 0 0.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.footer {
+    font-size: 0.8rem;
+    color: #ddd;
+    margin-top: 2rem;
+}
